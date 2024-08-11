@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:bcu="http://www.bostoncollege.edu.us/college" 
+           targetNamespace="http://www.bostoncollege.edu.us/college" 
+           elementFormDefault="qualified">
+
+    <xs:element name="College" type="bcu:College"></xs:element>
+
+        <xs:complexType name="College">
+            <xs:sequence>
+                <xs:element name="Administrator" type="bcu:Administrator" maxOccurs="unbounded"/>
+                <xs:element name="Department" type="bcu:Department" maxOccurs="unbounded"/>
+                <xs:element name="Programme" type="bcu:Programme" maxOccurs="unbounded"/>
+                <xs:element name="Student" type="bcu:Student" maxOccurs="unbounded"/>
+                <xs:element name="Teacher" type="bcu:Teacher" maxOccurs="unbounded"/>
+                <xs:element name="Admission" type="bcu:Admission" maxOccurs="unbounded"/>
+                <xs:element name="Club" type="bcu:Club" maxOccurs="unbounded"/>
+                <xs:element name="Library" type="bcu:Library" maxOccurs="unbounded"/>
+                <xs:element name="Research" type="bcu:Research" maxOccurs="unbounded"/>
+                <xs:element name="Alumni" type="bcu:Alumni" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+
+
+    <!-- Administrator Element -->
+        <xs:complexType name="Administrator">
+            <xs:sequence>
+                <xs:element name="Prefix" type="xs:string"/>
+                <xs:element name="First_Name" type="xs:string"/>
+                <xs:element name="Middle_Name" type="xs:string" minOccurs="0"/>
+                <xs:element name="Last_Name" type="xs:string"/>
+                <xs:element name="Phone_No">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:length value="10"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="Email" type="xs:string"/>
+                <xs:element name="Designation" type="xs:string"/>
+                <xs:element name="Qualification" type="xs:string"/>
+                <xs:element name="Date_of_Appointment" type="xs:date"/>
+                <xs:element name="Password" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="AdminID" type="xs:ID" use="required"/>
+        </xs:complexType>
+
+        <xs:complexType name="Department">
+            <xs:sequence>
+                <xs:element name="HoD_ID" type="xs:string"/>
+                <xs:element name="Department_Email" type="xs:string"/>
+                <xs:element name="No_of_Faculty" type="xs:integer"/>
+                <xs:element name="Dept_Library" type="xs:boolean"/>
+                <xs:element name="Location" type="xs:string"/>
+                <xs:element name="Year_of_Estb" type="xs:date"/>
+                <xs:element name="Dept_Website" type="xs:string"/>
+                <xs:element name="No_of_Research_Papers" type="xs:integer"/>
+            </xs:sequence>
+            <xs:attribute name="DepartmentID" type="xs:ID" use="required"/>
+        </xs:complexType>
+
+    <!-- Programme Element -->
+        <xs:complexType name="Programme">
+            <xs:sequence>
+                <xs:element name="ProgrammeName" type="xs:string"/>
+                <xs:element name="DepartmentID" type="xs:string"/>
+                <xs:element name="No_of_Students" type="xs:integer"/>
+                <xs:element name="No_of_Faculty" type="xs:integer"/>
+                <xs:element name="Degree">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="UG"/>
+                            <xs:enumeration value="PG"/>
+                            <xs:enumeration value="PhD"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="No_of_Years" type="xs:string"/>
+                <xs:element name="System">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="Semester"/>
+                            <xs:enumeration value="Trimester"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="Max_Credits" type="xs:integer"/>
+            </xs:sequence>
+            <xs:attribute name="ProgrammeID" type="xs:ID" use="required"/>
+        </xs:complexType>
+
+        <xs:complexType name="Student">
+            <xs:sequence>
+                <xs:element name="First_Name" type="xs:string"/>
+                <xs:element name="Middle_Name" type="xs:string" minOccurs="0"/>
+                <xs:element name="Last_Name" type="xs:string"/>
+                <xs:element name="Gender" type="xs:string"/>
+                <xs:element name="Phone_No">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:length value="10"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="Email" type="xs:string"/>
+                <xs:element name="DepartmentID" type="xs:string"/>
+                <xs:element name="ProgrammeID" type="xs:string"/>
+                <xs:element name="Attendance">
+                    <!-- Restriction: Attendance percentage must be between 0 and 100 -->
+                    <xs:simpleType>
+                        <xs:restriction base="xs:float">
+                            <xs:minInclusive value="0"/>
+                            <xs:maxInclusive value="100"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="Password" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="RollNo" type="xs:ID" use="required"/>
+        </xs:complexType>
+
+        <xs:complexType name="Teacher">
+            <xs:sequence>
+                <xs:element name="First_Name" type="xs:string"/>
+                <xs:element name="Middle_Name" type="xs:string" minOccurs="0"/>
+                <xs:element name="Last_Name" type="xs:string"/>
+                <xs:element name="Gender" type="xs:string"/>
+                <xs:element name="Phone_No">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:length value="10"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="Email" type="xs:string"/>
+                <xs:element name="DepartmentID" type="xs:string"/>
+                <xs:element name="Qualification" type="xs:string"/>
+                <xs:element name="NET_Qualified">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="Yes"/>
+                            <xs:enumeration value="No"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="Designation" type="xs:string"/>
+                <xs:element name="Date_of_Joining" type="xs:date"/>
+                <xs:element name="Password" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="TeacherID" type="xs:ID" use="required"/>
+        </xs:complexType>
+
+    <!-- Admission Element -->
+        <xs:complexType name="Admission">
+            <xs:sequence>
+                <xs:element name="First_Name" type="xs:string"/>
+                <xs:element name="Middle_Name" type="xs:string" minOccurs="0"/>
+                <xs:element name="Last_Name" type="xs:string"/>
+                <xs:element name="Phone_No">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:length value="10"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="Email" type="xs:string"/>
+                <xs:element name="Class10_Perc">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:float">
+                            <xs:minInclusive value="0"/>
+                            <xs:maxInclusive value="100"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="Class11_Perc" type="xs:float" minOccurs="0"/>
+                <xs:element name="Class12_Perc">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:float">
+                            <xs:minInclusive value="0"/>
+                            <xs:maxInclusive value="100"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="CUET_Score">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:float">
+                            <xs:minInclusive value="0"/>
+                            <xs:maxInclusive value="300"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="ProgrammeID" type="xs:string"/>
+                <xs:element name="Admission_status">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="Granted"/>
+                            <xs:enumeration value="Pending"/>
+                            <xs:enumeration value="Rejected"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="RegistrationNo" type="xs:ID" use="required"/>
+        </xs:complexType>
+
+    <!-- Club/Cell/Committee Element -->
+        <xs:complexType name="Club">
+            <xs:sequence>
+                <xs:element name="CCC_Name" type="xs:string"/>
+                <xs:element name="CCC_Agenda" type="xs:string"/>
+                <xs:element name="Convener_ID" type="xs:string"/>
+                <xs:element name="Co_Convener_ID" type="xs:string" minOccurs="0"/>
+                <xs:element name="President_Name" type="xs:string" minOccurs="0"/>
+                <xs:element name="Secretary_Name" type="xs:string" minOccurs="0"/>
+                <xs:element name="Treasurer_Name" type="xs:string" minOccurs="0"/>
+                <xs:element name="Date_of_Estb" type="xs:date"/>
+                <xs:element name="No_of_Members" type="xs:integer"/>
+            </xs:sequence>
+            <xs:attribute name="CCC_ID" type="xs:ID" use="required"/>
+        </xs:complexType>
+
+    <!-- Library Element -->
+        <xs:complexType name="Library">
+            <xs:sequence>
+                <xs:element name="Category" type="xs:string"/>
+                <xs:element name="DepartmentID" type="xs:string"/>
+                <xs:element name="Borrowable_Status" type="xs:boolean"/>
+                <xs:element name="Number_of_copies" type="xs:integer"/>
+                <xs:element name="Number_of_Pages" type="xs:integer"/>
+                <xs:element name="Author1" type="xs:string"/>
+                <xs:element name="Author2" type="xs:string" minOccurs="0"/>
+                <xs:element name="Author3" type="xs:string" minOccurs="0"/>
+                <xs:element name="ISBN" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="BookID" type="xs:ID" use="required"/>
+        </xs:complexType>
+
+    <!-- Research Element -->
+        <xs:complexType name="Research">
+            <xs:sequence>
+                <xs:element name="PublicationName" type="xs:string"/>
+                <xs:element name="PublicationSynopsis" type="xs:string"/>
+                <xs:element name="ResearchArea" type="xs:string"/>
+                <xs:element name="AuthorID1" type="xs:string"/>
+                <xs:element name="AuthorID2" type="xs:string" minOccurs="0"/>
+                <xs:element name="AuthorID3" type="xs:string" minOccurs="0"/>
+                <xs:element name="EtAl_Status" type="xs:boolean"/>
+                <xs:element name="Link" type="xs:string"/>
+                <xs:element name="Verified_Status" type="xs:boolean"/>
+            </xs:sequence>
+            <xs:attribute name="PublicationID" type="xs:ID" use="required"/>
+        </xs:complexType>
+
+    <!-- Alumni Element -->
+        <xs:complexType name="Alumni">
+            <xs:sequence>
+                <xs:element name="RollNo" type="xs:string"/>
+                <xs:element name="DepartmentID" type="xs:string"/>
+                <xs:element name="ProgrammeID" type="xs:string"/>
+                <xs:element name="Year_of_Graduation" type="xs:integer"/>
+                <xs:element name="Alum_Email" type="xs:string"/>
+                <xs:element name="Alum_Phone_No">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:length value="10"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="Highest_Qualification" type="xs:string"/>
+                <xs:element name="Current_Occupation" type="xs:string"/>
+                <xs:element name="Testimonial" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="AlumniID" type="xs:ID" use="required"/>
+        </xs:complexType>
+
+        
+</xs:schema>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="college.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<?xml-stylesheet href="transform.xsl" type="text/xsl"?>
+<College
+        xmlns="http://www.bostoncollege.edu.us/college"
+        xmlns:bcu="http://www.bostoncollege.edu.us/college"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:schemaLocation="http://www.bostoncollege.edu.us/college college.xsd">
+
+    <Administrator AdminID="A001">
+        <Prefix>Dr.</Prefix>
+        <First_Name>John</First_Name>
+        <Middle_Name>H.</Middle_Name>
+        <Last_Name>Simon</Last_Name>
+        <Phone_No>9878932813</Phone_No>
+        <Email>john.simon@bostoncollege.edu.us</Email>
+        <Designation>Principal</Designation>
+        <Qualification>PhD</Qualification>
+        <Date_of_Appointment>2015-08-01</Date_of_Appointment>
+        <Password>admin123</Password>
+    </Administrator>
+
+    <Department DepartmentID="D001">
+        <HoD_ID>T001</HoD_ID>
+        <Department_Email>cse@college.edu.us</Department_Email>
+        <No_of_Faculty>20</No_of_Faculty>
+        <Dept_Library>true</Dept_Library>
+        <Location>Building A</Location>
+        <Year_of_Estb>2000-01-01</Year_of_Estb>
+        <Dept_Website>http://www.bostoncollege.edu.us/cse</Dept_Website>
+        <No_of_Research_Papers>100</No_of_Research_Papers>
+    </Department>
+
+    <Programme ProgrammeID="P001">
+        <ProgrammeName>Bachelor of Science in Computer Science</ProgrammeName>
+        <DepartmentID>D001</DepartmentID>
+        <No_of_Students>200</No_of_Students>
+        <No_of_Faculty>15</No_of_Faculty>
+        <Degree>UG</Degree>
+        <No_of_Years>3</No_of_Years>
+        <System>Semester</System>
+        <Max_Credits>180</Max_Credits>
+    </Programme>
+
+    <Student RollNo="S001">
+        <First_Name>Jane</First_Name>
+        <Middle_Name>Q.</Middle_Name>
+        <Last_Name>Smith</Last_Name>
+        <Gender>Female</Gender>
+        <Phone_No>9876543210</Phone_No>
+        <Email>jane.smith@student.bostoncollege.edu.us</Email>
+        <DepartmentID>D001</DepartmentID>
+        <ProgrammeID>P001</ProgrammeID>
+        <Attendance>85.5</Attendance>
+        <Password>student123</Password>
+    </Student>
+
+    <Teacher TeacherID="T001">
+        <First_Name>Robert</First_Name>
+        <Middle_Name>K.</Middle_Name>
+        <Last_Name>Brown</Last_Name>
+        <Gender>Male</Gender>
+        <Phone_No>2345678901</Phone_No>
+        <Email>robert.brown@bostoncollege.edu.us</Email>
+        <DepartmentID>D001</DepartmentID>
+        <Qualification>PhD</Qualification>
+        <NET_Qualified>Yes</NET_Qualified>
+        <Designation>Professor</Designation>
+        <Date_of_Joining>2012-09-15</Date_of_Joining>
+        <Password>teacher123</Password>
+    </Teacher>
+
+
+    <Admission RegistrationNo="R001">
+        <First_Name>Emily</First_Name>
+        <Middle_Name>L.</Middle_Name>
+        <Last_Name>Johnson</Last_Name>
+        <Phone_No>3456789012</Phone_No>
+        <Email>emily.johnson@gmail.com</Email>
+        <Class10_Perc>90.5</Class10_Perc>
+        <Class11_Perc>85.0</Class11_Perc>
+        <Class12_Perc>88.0</Class12_Perc>
+        <CUET_Score>250.5</CUET_Score>
+        <ProgrammeID>P001</ProgrammeID>
+        <Admission_status>Granted</Admission_status>
+    </Admission>
+
+    <Club CCC_ID="C001">
+        <CCC_Name>Coding Club</CCC_Name>
+        <CCC_Agenda>Promote coding skills</CCC_Agenda>
+        <Convener_ID>T001</Convener_ID>
+        <President_Name>Jane Smith</President_Name>
+        <Secretary_Name>Emily Johnson</Secretary_Name>
+        <Treasurer_Name>Robert Brown</Treasurer_Name>
+        <Date_of_Estb>2018-02-15</Date_of_Estb>
+        <No_of_Members>50</No_of_Members>
+    </Club>
+
+    <Library BookID="B001">
+        <Category>Science</Category>
+        <DepartmentID>D001</DepartmentID>
+        <Borrowable_Status>true</Borrowable_Status>
+        <Number_of_copies>5</Number_of_copies>
+        <Number_of_Pages>300</Number_of_Pages>
+        <Author1>Christopher Maine</Author1>
+        <Author2>Jane Smith</Author2>
+        <ISBN>978-3-16-148410-0</ISBN>
+    </Library>
+
+    
+    <Research PublicationID="Re001">
+        <PublicationName>AI in Education</PublicationName>
+        <PublicationSynopsis>A study on the impact of AI on education</PublicationSynopsis>
+        <ResearchArea>Artificial Intelligence</ResearchArea>
+        <AuthorID1>T001</AuthorID1>
+        <EtAl_Status>true</EtAl_Status>
+        <Link>http://www.research.edu/ai-education</Link>
+        <Verified_Status>true</Verified_Status>
+    </Research>
+
+    <Alumni AlumniID="AL001">
+        <RollNo>S002</RollNo>
+        <DepartmentID>D001</DepartmentID>
+        <ProgrammeID>P001</ProgrammeID>
+        <Year_of_Graduation>2020</Year_of_Graduation>
+        <Alum_Email>alex@alumni.bostoncollege.edu.us</Alum_Email>
+        <Alum_Phone_No>9876543210</Alum_Phone_No>
+        <Highest_Qualification>MSc</Highest_Qualification>
+        <Current_Occupation>Software Engineer</Current_Occupation>
+        <Testimonial>The college provided excellent education and opportunities.</Testimonial>
+    </Alumni>
+
+</College>
